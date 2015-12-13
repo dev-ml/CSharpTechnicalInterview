@@ -1,4 +1,4 @@
-﻿using DesignPatterns;
+﻿using MLewi.DesignPatterns.Creational;
 using System;
 
 namespace ConsoleApplication
@@ -9,6 +9,8 @@ namespace ConsoleApplication
         {
             Singleton singleton = Singleton.GetInstance();
             Console.WriteLine(singleton.SayHi("Maciej"));
+
+            Console.ReadKey();
         }
     }
 }
