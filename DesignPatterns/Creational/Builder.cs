@@ -73,7 +73,6 @@ namespace MLewi.DesignPatterns.Creational
         Car Car { get; }
     }
 
-
     public class FerrariBuilder : ICarBuilder
     {
         public Car Car { get; }
