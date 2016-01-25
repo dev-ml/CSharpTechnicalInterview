@@ -1,9 +1,7 @@
-﻿using System;
+﻿using MLewi.Models;
 
 namespace MLewi.DesignPatterns.Creational
 {
-    // Now lets see what each class in the above class diagram is meant for
-
     // ConcreteBuilder: Concrete classes that will create the complex Product.this will keep track
     //                  of what Product it has created i.e.assembled what parts and this will be
     //                  used by the client to get the Product object.
@@ -12,65 +10,29 @@ namespace MLewi.DesignPatterns.Creational
     //           create the actual concrete Product.
     // Product: This is the object that will be created by assembling many parts.
 
-    #region Product Part Types
-
-    public enum EngineType
-    {
-        V4,
-        V6,
-        V8,
-        V12
-    }
-
-    public enum FuelType
-    {
-        Benzine,
-        Diesel,
-        Gas
-    }
-
-    public enum ChassisType
-    {
-        Iron,
-        Magnesium,
-        Aluminium,
-        CarbonFibre
-    }
-
-    #endregion
-
-    #region Concrete Product
-
-    public class Car
-    {
-        public Car(string name)
-        {
-            Name = name;
-        }
-
-        public string Name { get; }
-        public EngineType Engine { get; set; }
-        public ChassisType Chassis { get; set; }
-        public FuelType Fuel { get; set; }
-        public int Doors { get; set; }
-
-        public override string ToString()
-        {
-            return $"{Name}. {Engine} {Fuel} engine, {Chassis} chassis and {Doors} doors.";
-        }
-    }
-
-    #endregion
-
-    #region Builder interface and Concrete Builders
-
     public interface ICarBuilder
     {
-        void BuildEngine();
-        void BuildFuelTank();
-        void BuildChassis();
-        void BuildDoors();
         Car Car { get; }
+
+        void BuildChassis();
+
+        void BuildDoors();
+
+        void BuildEngine();
+
+        void BuildFuelTank();
+    }
+
+    public class CarManufacturer
+    {
+        public Car Construct(ICarBuilder builder)
+        {
+            builder.BuildChassis();
+            builder.BuildDoors();
+            builder.BuildEngine();
+            builder.BuildFuelTank();
+            return builder.Car;
+        }
     }
 
     public class FerrariBuilder : ICarBuilder
@@ -132,22 +94,4 @@ namespace MLewi.DesignPatterns.Creational
             Car.Fuel = FuelType.Diesel;
         }
     }
-
-    #endregion
-
-    #region Director Manufacture class
-
-    public class CarManufacturer
-    {
-        public Car Construct(ICarBuilder builder)
-        {
-            builder.BuildChassis();
-            builder.BuildDoors();
-            builder.BuildEngine();
-            builder.BuildFuelTank();
-            return builder.Car;
-        }
-    }
-
-    #endregion
 }

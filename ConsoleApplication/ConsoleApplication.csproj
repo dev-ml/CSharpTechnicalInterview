@@ -44,6 +44,10 @@
       <Project>{2690d750-68a6-446b-81fd-5b7a0561a128}</Project>
       <Name>DesignPatterns</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{1012477e-042f-4fea-ad27-2f856aa81037}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

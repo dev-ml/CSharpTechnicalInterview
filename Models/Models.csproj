@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2690D750-68A6-446B-81FD-5B7A0561A128}</ProjectGuid>
+    <ProjectGuid>{1012477E-042F-4FEA-AD27-2F856AA81037}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MLewi.DesignPatterns</RootNamespace>
-    <AssemblyName>MLewi.DesignPatterns</AssemblyName>
+    <RootNamespace>MLewi.Models</RootNamespace>
+    <AssemblyName>MLewi.Models</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,24 +30,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Creational\AbstractFactory.cs" />
-    <Compile Include="Creational\Builder.cs" />
-    <Compile Include="Creational\FactoryMethod.cs" />
-    <Compile Include="Creational\Prototype.cs" />
-    <Compile Include="Creational\Singleton.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="README.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\Models.csproj">
-      <Project>{1012477e-042f-4fea-ad27-2f856aa81037}</Project>
-      <Name>Models</Name>
-    </ProjectReference>
+    <Compile Include="Motorcycle.cs" />
+    <Compile Include="Car.cs" />
+    <Compile Include="ChassisType.cs" />
+    <Compile Include="EngineType.cs" />
+    <Compile Include="FuelType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
